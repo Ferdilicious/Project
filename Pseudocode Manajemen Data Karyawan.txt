@@ -1,0 +1,70 @@
+DEKLARASI
+  array karyawan[100]
+  integer jumlah = 0
+  integer pilihan
+
+ULANGI
+  TAMPILKAN menu utama
+  INPUT pilihan
+
+  JIKA pilihan = 1 MAKA
+    INPUT nik, nama, jabatan, gaji
+    SIMPAN ke array karyawan[jumlah]
+    jumlah = jumlah + 1
+
+  ELSE JIKA pilihan = 2 MAKA
+    JIKA jumlah = 0 MAKA
+      TAMPILKAN "Data kosong"
+    ELSE
+      TAMPILKAN menu filter
+      INPUT filter
+
+      JIKA filter = 1 MAKA
+        UNTUK i = 0 SAMPAI jumlah-1
+          TAMPILKAN semua data karyawan[i]
+        SELESAI
+
+      ELSE JIKA filter = 2 MAKA
+        INPUT jabatanCari
+        UNTUK i = 0 SAMPAI jumlah-1
+          JIKA karyawan[i].jabatan = jabatanCari MAKA
+            TAMPILKAN data karyawan[i]
+          ENDIF
+        SELESAI
+
+      ELSE JIKA filter = 3 MAKA
+        INPUT gajiMin, gajiMax
+        UNTUK i = 0 SAMPAI jumlah-1
+          JIKA gaji dalam rentang MAKA
+            TAMPILKAN data karyawan[i]
+          ENDIF
+        SELESAI
+
+      ELSE
+        TAMPILKAN "Filter tidak valid"
+      ENDIF
+    ENDIF
+
+  ELSE JIKA pilihan = 3 MAKA
+    INPUT nikCari
+    SET ditemukan = false
+    UNTUK i = 0 SAMPAI jumlah-1
+      JIKA karyawan[i].nik = nikCari MAKA
+        TAMPILKAN data karyawan[i]
+        ditemukan = true
+        BERHENTI
+      ENDIF
+    SELESAI
+    JIKA ditemukan = false MAKA
+      TAMPILKAN "Data tidak ditemukan"
+    ENDIF
+
+  ELSE JIKA pilihan = 4 MAKA
+    TAMPILKAN "Program selesai"
+
+  ELSE
+    TAMPILKAN "Pilihan tidak valid"
+  ENDIF
+
+SAMPAI pilihan = 4
+SELESAI
